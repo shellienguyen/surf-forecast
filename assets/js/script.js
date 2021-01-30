@@ -4,7 +4,7 @@ let parseStormglassData = function( fetchedData ) {
    airTemp = (( airTemp * ( 9 / 5 )) + 32 ).toFixed( 2 );
    console.log( "airTemp: " + airTemp + " °F");
 
-   let waterTemp = fetchedData.hours[ 0 ].water Temperature.noaa;
+   let waterTemp = fetchedData.hours[ 0 ].waterTemperature.noaa;
    // Convert from celcius to fahrenheit and round to 2 decimal places
    waterTemp = (( waterTemp * ( 9 / 5 )) + 32 ).toFixed( 2 );
    console.log( "waterTemp: " + waterTemp + " °F");
@@ -72,3 +72,11 @@ let fetchStormglassData = function() {
 $( document ).ready( function() {
    fetchStormglassData();
 });
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, options);
+});
+
+var instance = M.FormSelect.getInstance(elem);
+
+instance.getSelectedValues("")

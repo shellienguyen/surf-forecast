@@ -1,19 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset = "UTF-8">
-   <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
-   <meta http-equiv="X-UA-Compatible" content = "ie=edge">
-   <title>Surf Forecast</title>
-   <link rel  ="stylesheet" href="./assets/styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>California Surf Conditions</title>
 </head>
-
 <body>
-   <main>
-
-   </main>
-   
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    <script src = "./assets/js/script.js"></script>
+  <header>
+    <h1>CA Surf Conditions</h1>
+  </header>
+  <div class="row">
+    <div class="col s1 offset-s1"><a class="waves-effect waves-light btn-small">Santa Cruz</a></div>
+    <div class="col s1"><a class="waves-effect waves-light btn-small">San Mateo</a></div>
+    <div class="col s2"><a class="waves-effect waves-light btn-small">San Francisco</a></div>
+    <div class="col s1"><a class="waves-effect waves-light btn-small">Marin</a></div>
+    <div class="col s1"><a class="waves-effect waves-light btn-small">Sonoma</a></div>
+    <div class="col s2"><a class="waves-effect waves-light btn-small">Mendocino</a></div>
+    <div class="col s1"><a class="waves-effect waves-light btn-small">Humboldt</a></div>
+    <div class="col s2"><a class="waves-effect waves-light btn-small">Del Norte</a></div>
+  </div>
+  <div class="row" id="body">
+    <div class="col s4 section"></div>
+    <div class="col s4 light-blue lighten-3 section z-depth-5" id="conditions">
+      <div class="input-field col s12" id="cities">
+        <select>
+          <option value="" disabled selected>Select beach to find surf conditions!</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label class="red-text"><strong>Select your county located at the top & bottom of page before selecting beach</strong></label>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th> <!-- GIPHY IMAGES CAN GO HERE -->
+            <th></th>
+          </tr>
+        </thead>
+          <tr>
+            <td><a class="orange-text text-darken-3" id="waterTemp"><p class="black-text">Water:</p>[waterTemp]</a></td>
+            <td></td>
+            <td><a class="orange-text text-darken-3" id="airTemp"><p class="black-text">Air:</p>[airTemp]</a></td>
+          </tr>
+        <tbody>
+          <tr class="divide">
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><p><strong>Wind <i class="material-icons">toys</i></strong></p></td>
+            <td><a class="teal-text text-darken-4" id="windSpeed">[windSpeed]</a></td>
+            <td><a class="teal-text text-darken-4" id="windDirection">[windDirection]</a></td>
+          </tr>
+          <tr>
+            <td><p><strong>Swell <i class="material-icons">sailing</i></strong></p></td>
+            <td><a class="indigo-text text-darken-4" id="swellPeriod">[swellPeriod]</a></td>
+            <td><a class="indigo-text text-darken-4" id="swellDirection">[swellDirection]</a></td>
+          </tr>
+          <tr class="divide">
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><p><strong>Waves </br> <i class="material-icons">waves</i></strong></p></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><a class="purple-text" id="waveHeight">[waveHeight]</a></td>
+            <td><a class="purple-text" id="wavePeriod">[wavePeriod]</a></td>
+            <td><a class="purple-text" id="waveDirection">[waveDirection]</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s2 offset-s1"><a class="waves-effect waves-light btn-small">San Diego</a></div>
+    <div class="col s1"><a class="waves-effect waves-light btn-small">Orange</a></div>
+    <div class="col s2"><a class="waves-effect waves-light btn-small">Los Angeles</a></div>
+    <div class="col s1"><a class="waves-effect waves-light btn-small">Ventura</a></div>
+    <div class="col s2"><a class="waves-effect waves-light btn-small">Santa Barbara</a></div>
+    <div class="col s1"><a class="waves-effect waves-light btn-small">Monterey</a></div>
+    <div class="col s2"><a class="waves-effect waves-light btn-small">San Luis Obispo</a></div>
+  </div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+    $('select').formSelect();
+    });
+  </script>
 </body>
 </html>

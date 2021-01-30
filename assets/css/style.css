@@ -1,0 +1,43 @@
+body {
+  background-image:url(https://cloudfront-us-east-1.images.arcpublishing.com/bonnier/4YWJID3UPFAALN4FAYDMEBLOPY.jpg);
+}
+
+#body {
+  margin: 4% 0;
+}
+
+th, td, label {
+  text-align:center;
+}
+
+h1 {
+  display:none;
+}
+
+p {
+  font-size: larger;
+}
+
+a {
+  margin: 2% 0;
+  opacity:0.55;
+  font-size: large;
+  font-weight: bold;
+}
+
+a:hover {
+  opacity:1;
+}
+
+#conditions {
+  opacity:0.8;
+  border-radius: 15px 15px 15px 15px;
+}
+
+#cities {
+  margin-top: 5%;
+}
+
+#counties {
+  align-items: flex-end;
+}
