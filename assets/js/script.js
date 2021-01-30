@@ -4,6 +4,11 @@ let parseStormglassData = function( fetchedData ) {
    airTemp = (( airTemp * ( 9 / 5 )) + 32 ).toFixed( 2 );
    console.log( "airTemp: " + airTemp + " °F");
 
+   let waterTemp = fetchedData.hours[ 0 ].water Temperature.noaa;
+   // Convert from celcius to fahrenheit and round to 2 decimal places
+   waterTemp = (( waterTemp * ( 9 / 5 )) + 32 ).toFixed( 2 );
+   console.log( "waterTemp: " + waterTemp + " °F");
+
    let cloudCover = fetchedData.hours[ 0 ].cloudCover.noaa;
    console.log( "cloudCover: " + cloudCover + "%" );
 
@@ -40,12 +45,14 @@ let parseStormglassData = function( fetchedData ) {
 
 let fetchStormglassData = function() {
    console.log( "today: " + new Date() );
+
+   // Convert time to UTC time, required to pass into the fetch parameter
    let todayInUtcTime = Math.floor(( new Date().getTime()) / 1000 );
    console.log( "todayInUtcTime: " + todayInUtcTime );
 
    const lat = 33.5705796;
    const lng = -117.8108887;
-   const params = "windSpeed,windDirection,cloudCover,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
+   const params = "windSpeed,waterTemperature,windDirection,cloudCover,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
    apiKey = "777e70f8-6125-11eb-83d4-0242ac130002-777e7170-6125-11eb-83d4-0242ac130002"
 
    fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
