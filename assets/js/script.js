@@ -1,9 +1,15 @@
 $(document).ready(function () {
    $('select').formSelect();
 
+   // array to hold location info for the beach options
    let beachLocation = [ 
       {name: "Zuma Beach", lat: 34.021802, lng: -118.831190},
       {name: "Santa Monica", lat: 34.024212, lng: -118.496475},
+      {name: "Manhattan Beach", lat: 33.881248, lng: -118.407211},
+      {name: "Redondo Beach", lat: 33.849182, lng: -118.388405},
+      {name: "Hermosa Beach", lat: 33.862141, lng: -118.400009},
+      {name: "Huntington Beach", lat: 33.660057, lng: -117.998970},
+      {name: "Newport Beach", lat: 33.628342, lng: -117.927933},
    ]
 
    ///////////////////////////
@@ -70,6 +76,7 @@ $(document).ready(function () {
    };
 
    ////////////////////////////////////
+   // This section returns errors when page is loaded.  I believe it is corresponding to the changes made with our script tags in index.html.  Can this section be deleted?
 
    // Upon page load
    // $( document ).ready( function() {
@@ -85,7 +92,8 @@ $(document).ready(function () {
    // instance.getSelectedValues("")
 
    ///////////////////////////////////////
-   // event listener for beach selection begin
+   // event listener for beach selection 
+
    let beachSelect = document.querySelector('#select');
    console.log(beachSelect);
    beachSelect.addEventListener("change", function(event) {
@@ -98,34 +106,6 @@ $(document).ready(function () {
       // fetchStormglass with the new lat and lng parameters 
 
    });
-
-
-   // unsuccessful ELs
-
-   // document.getElementById('zumaBeach').addEventListener("change", function(){
-   //    let lat = 34.021802;
-   //    let lng = -118.831190;
-   //    fetchStormglassData(lat, lng);
-   //    console.log("ZumaBeach");
-   // });
-
-   // document.getElementById('zumaBeach').addEventListener("click", function(){
-   //    let lat = 34.021802;
-   //    let lng = -118.831190;
-   //    fetchStormglassData(lat, lng);
-   //    console.log("ZumaBeach");
-   // });
-
-
-   // document.getElementById('santaMonica').addEventListener("change", function(){
-   //    let lat = 34.024212;
-   //    let lng = -118.496475;
-   //    fetchStormglassData(lat, lng);
-   //    console.log("santaMonica");
-   // });
-
-
-
 
 
 })
