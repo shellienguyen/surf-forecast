@@ -1,3 +1,11 @@
+// let beachLocation = [ 
+//    {name: "Zuma Beach", lat: 34.021802, lng = -118.831190},
+//    {name: "Santa Monica", lat: 34.024212, lng = -118.496475},
+//    {}
+// ]
+
+///////////////////////////
+
 let parseStormglassData = function( fetchedData ) {
    let airTemp = fetchedData.hours[ 0 ].airTemperature.noaa;
    // Convert from celcius to fahrenheit and round to 2 decimal places
@@ -46,7 +54,7 @@ let fetchStormglassData = function() {
    const lat = 33.5705796;
    const lng = -117.8108887;
    const params = "windSpeed,windDirection,cloudCover,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
-   apiKey = "777e70f8-6125-11eb-83d4-0242ac130002-777e7170-6125-11eb-83d4-0242ac130002"
+   apiKey = "567e2358-6125-11eb-83d4-0242ac130002-567e23c6-6125-11eb-83d4-0242ac130002"
 
    fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
          headers: {
@@ -62,14 +70,51 @@ let fetchStormglassData = function() {
 ////////////////////////////////////
 
 // Upon page load
-$( document ).ready( function() {
-   fetchStormglassData();
-});
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, options);
+// $( document ).ready( function() {
+//    fetchStormglassData();
+// });
+// document.addEventListener('DOMContentLoaded', function() {
+//   var elems = document.querySelectorAll('select');
+//   var instances = M.FormSelect.init(elems, options);
+// });
+
+// var instance = M.FormSelect.getInstance(elem);
+
+// instance.getSelectedValues("")
+
+///////////////////////////////////////
+// event listener for beach selection begin
+document.querySelector('#select').addEventListener("change", (event) => {
+   // change the lat and lng variables to correspond with the selected beach
+   alert("change is made");
+   // fetchStormglass with the new lat and lng parameters 
 });
 
-var instance = M.FormSelect.getInstance(elem);
 
-instance.getSelectedValues("")
+// unsuccessful ELs
+
+// document.getElementById('zumaBeach').addEventListener("change", function(){
+//    let lat = 34.021802;
+//    let lng = -118.831190;
+//    fetchStormglassData(lat, lng);
+//    console.log("ZumaBeach");
+// });
+
+// document.getElementById('zumaBeach').addEventListener("click", function(){
+//    let lat = 34.021802;
+//    let lng = -118.831190;
+//    fetchStormglassData(lat, lng);
+//    console.log("ZumaBeach");
+// });
+
+
+// document.getElementById('santaMonica').addEventListener("change", function(){
+//    let lat = 34.024212;
+//    let lng = -118.496475;
+//    fetchStormglassData(lat, lng);
+//    console.log("santaMonica");
+// });
+
+
+
+
