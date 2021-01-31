@@ -9,9 +9,6 @@ let parseStormglassData = function( fetchedData ) {
    waterTemp = (( waterTemp * ( 9 / 5 )) + 32 ).toFixed( 2 );
    console.log( "waterTemp: " + waterTemp + " °F");
 
-   let cloudCover = fetchedData.hours[ 0 ].cloudCover.noaa;
-   console.log( "cloudCover: " + cloudCover + "%" );
-
    let humidity = fetchedData.hours[ 0 ].humidity.noaa;
    console.log( "humidity: " + humidity + "%" );
 
@@ -52,7 +49,7 @@ let fetchStormglassData = function() {
 
    const lat = 33.5705796;
    const lng = -117.8108887;
-   const params = "windSpeed,waterTemperature,windDirection,cloudCover,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
+   const params = "windSpeed,waterTemperature,windDirection,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
    apiKey = "777e70f8-6125-11eb-83d4-0242ac130002-777e7170-6125-11eb-83d4-0242ac130002"
 
    fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
@@ -73,10 +70,10 @@ $( document ).ready( function() {
    fetchStormglassData();
 });
 document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, options);
-});
-
-var instance = M.FormSelect.getInstance(elem);
-
-instance.getSelectedValues("")
+   var elems = document.querySelectorAll('select');
+   var instances = M.FormSelect.init(elems, options);
+ });
+ 
+ var instance = M.FormSelect.getInstance(elem);
+ 
+ instance.getSelectedValues("")
