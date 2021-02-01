@@ -21,10 +21,6 @@ h1 {
   display:none;
 }
 
-p {
-  font-size: larger;
-}
-
 .surf-description {
 
   font-size: 44px;
@@ -38,13 +34,13 @@ a {
   min-width: 500px;
   min-height: 250px;
   margin: 2% 0;
-  opacity:0.55;
   font-size: large;
   font-weight: bold;
 }
 
-a:hover {
-  opacity:1;
+p {
+  font-size: larger;
+  font-weight: bold;
 }
 
 #conditions {
@@ -54,8 +50,4 @@ a:hover {
 
 #cities {
   margin-top: 5%;
-}
-
-#counties {
-  align-items: flex-end;
 }
