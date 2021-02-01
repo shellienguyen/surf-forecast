@@ -207,15 +207,17 @@ $(document).ready(function () {
 
    ////////////////////////////////////
 
-   let fetchStormglassData = function() {
+   let fetchStormglassData = function( lat, lng ) {
       console.log( "today: " + new Date() );
 
       // Convert time to UTC time, required to pass into the fetch parameter
       let todayInUtcTime = Math.floor(( new Date().getTime()) / 1000 );
       console.log( "todayInUtcTime: " + todayInUtcTime );
 
-      const lat = 33.5705796;
-      const lng = -117.8108887;
+      // Just to test fetch error
+      lat = 3333.5705796;
+      lng = -1173.8108887;
+
       const params = "windSpeed,waterTemperature,windDirection,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
       apiKey = "777e70f8-6125-11eb-83d4-0242ac130002-777e7170-6125-11eb-83d4-0242ac130002"
 
@@ -223,15 +225,26 @@ $(document).ready(function () {
             headers: {
             'Authorization': apiKey
          }
-      }).then(( response ) => response.json()).then(( jsonData ) => {
-         console.log( jsonData );
-         parseAndDisplayStormglassData( jsonData );
-
-         // push data from stormglass api call to gif function.  and call function.  
-
-         fetchGifs(jsonData);
+      }).then(( response ) => {
+         if (response.ok ) {
+            response.json().then(( jsonData ) => {
+               console.log( jsonData );
+               parseAndDisplayStormglassData( jsonData );
+   
+               // push data from stormglass api call to gif function.  and call function.  
+   
+               fetchGifs(jsonData);
+            });
+         }
+         else {
+            console.log( "Fetch error" );
+         };
       });
-   };
+/*       .catch(( error ) => {
+         console.log( "fetch error: " );
+         console.log( error );   
+      });
+ */   };
 
    ////////////////////////////////////
 
