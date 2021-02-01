@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,83 +9,96 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>SoCal Surf Conditions</title>
 </head>
+
 <body>
-   
   <header>
     <h1>CA Surf Conditions</h1>
   </header>
-  <div class="row" id="body">
-    <div class="col s4 section"></div>
-    <div class="col s4 light-blue lighten-3 section z-depth-5" id="conditions">
-      <div class="input-field col s12" id="cities">
-        <select id="select">
-          <option value="" disabled selected>Select beach</option>
-          <option value="0" id="zumaBeach">Zuma Beach</option>
-          <option value="1" id="santaMonica">Santa Monica</option>
-          <option value="2" id="manhattanBeach">Manhattan Beach</option>
-          <option value="3" id="redondoBeach">Redondo Beach</option>
-          <option value="4" id="hermosaBeach">Hermosa Beach</option>
-          <option value="5" id="huntingtonBeach">Huntington Beach</option>
-          <option value="6" id="newportBeach">Newport Beach</option>
-        </select>
-        <label class="red-text"><strong>Southern California Surf Conditions</strong></label>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th><a class="orange-text text-darken-3" id="waterTemp"><p class="black-text">Water:</p>[waterTemp]</a></th>
-            <th><a id="giphy" href="https://placeholder.com"><img src="https://via.placeholder.com/250"></a></th>
-            <th><a class="orange-text text-darken-3" id="airTemp"><p class="black-text">Air:</p>[airTemp]</a></th>
-          </tr>
-          <tr>
-            <th></th>
-            <th><p class="surf-description" id="surf-description">Surf</p></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
 
-          </tr>
-          <tr class="divide">
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><p><strong>Wind <i class="material-icons">toys</i></strong></p></td>
-            <td><a class="teal-text text-darken-4" id="windSpeed">[windSpeed]</a></td>
-            <td><a class="teal-text text-darken-4" id="windDirection">[windDirection]</a></td>
-          </tr>
-          <tr>
-            <td><p><strong>Swell <i class="material-icons">sailing</i></strong></p></td>
-            <td><a class="indigo-text text-darken-4" id="swellPeriod">[swellPeriod]</a></td>
-            <td><a class="indigo-text text-darken-4" id="swellDirection">[swellDirection]</a></td>
-          </tr>
-          <tr class="divide">
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><i class="large material-icons">kitesurfing</i></td>
-            <td><p><strong>Waves </br> <i class="material-icons">waves</i></strong></p></td>
-            <td><i class="large material-icons">surfing</i></td>
-          </tr>
-          <tr>
-            <td><a class="purple-text" id="waveHeight">[waveHeight]</a></td>
-            <td><a class="purple-text" id="wavePeriod">[wavePeriod]</a></td>
-            <td><a class="purple-text" id="waveDirection">[waveDirection]</a></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="row" id="body">
+      <div class="col s4 section"></div>
+      <div class="col s4 light-blue lighten-3 section z-depth-5" id="conditions">
+        <div class="input-field col s12" id="cities">
+          <select id="select">
+            <option value="" disabled selected>Select beach</option>
+            <option value="0" id="zumaBeach">Zuma Beach</option>
+            <option value="1" id="santaMonica">Santa Monica</option>
+            <option value="2" id="manhattanBeach">Manhattan Beach</option>
+            <option value="3" id="redondoBeach">Redondo Beach</option>
+            <option value="4" id="hermosaBeach">Hermosa Beach</option>
+            <option value="5" id="huntingtonBeach">Huntington Beach</option>
+            <option value="6" id="newportBeach">Newport Beach</option>
+          </select>
+          <label class="red-text"><strong>Southern California Surf Conditions</strong></label>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th><a class="orange-text text-darken-3" id="waterTemp">
+                  <p class="black-text">Water:</p>[waterTemp]
+                </a></th>
+              <th><a id="giphy" href="https://placeholder.com"><img src="https://via.placeholder.com/250"></a></th>
+              <th><a class="orange-text text-darken-3" id="airTemp">
+                  <p class="black-text">Air:</p>[airTemp]
+                </a></th>
+            </tr>
+            <tr>
+              <th></th>
+              <th>
+                <p class="surf-description" id="surf-description">Surf</p>
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+
+            </tr>
+            <tr class="divide">
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <p><strong>Wind <i class="material-icons">toys</i></strong></p>
+              </td>
+              <td><a class="teal-text text-darken-4" id="windSpeed">[windSpeed]</a></td>
+              <td><a class="teal-text text-darken-4" id="windDirection">[windDirection]</a></td>
+            </tr>
+            <tr>
+              <td>
+                <p><strong>Swell <i class="material-icons">sailing</i></strong></p>
+              </td>
+              <td><a class="indigo-text text-darken-4" id="swellPeriod">[swellPeriod]</a></td>
+              <td><a class="indigo-text text-darken-4" id="swellDirection">[swellDirection]</a></td>
+            </tr>
+            <tr class="divide">
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><i class="large material-icons">kitesurfing</i></td>
+              <td>
+                <p><strong>Waves </br> <i class="material-icons">waves</i></strong></p>
+              </td>
+              <td><i class="large material-icons">surfing</i></td>
+            </tr>
+            <tr>
+              <td><a class="purple-text" id="waveHeight">[waveHeight]</a></td>
+              <td><a class="purple-text" id="wavePeriod">[wavePeriod]</a></td>
+              <td><a class="purple-text" id="waveDirection">[waveDirection]</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
   <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <!-- THIS SCRIPT TAG WAS COMMENTED OUT W/ HELP FROM DAIRMUID -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-   <script src = "./assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
   <!-- THIS SCRIPT TAG WAS COMMENTED OUT W/ HELP FROM DAIRMUID -->
   <script>
     // $(document).ready(function(){
@@ -92,4 +106,5 @@
     // });
   </script>
 </body>
+
 </html>
