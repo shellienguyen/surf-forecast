@@ -215,8 +215,8 @@ $(document).ready(function () {
       console.log( "todayInUtcTime: " + todayInUtcTime );
 
       // Just to test fetch error
-      lat = 3333.5705796;
-      lng = -1173.8108887;
+      //lat = 3333.5705796;
+      //lng = -1173.8108887;
 
       const params = "windSpeed,waterTemperature,windDirection,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
       apiKey = "777e70f8-6125-11eb-83d4-0242ac130002-777e7170-6125-11eb-83d4-0242ac130002"
