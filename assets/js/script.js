@@ -294,12 +294,33 @@ $(document).ready(function () {
    console.log(beachSelect);
    beachSelect.addEventListener("change", function(event) {
       // change the lat and lng variables to correspond with the selected beach
+      let selection = document.getElementById("select").value;
+      console.log(selection);
       console.log(beachLocation[event.target.value]); 
       let lat = beachLocation[event.target.value].lat; 
       let lng = beachLocation[event.target.value].lng; 
 
+      localStorage.setItem("last selection", selection);
+      localStorage.setItem("last-lat", lng);
+      localStorage.setItem("last-lng", lat);
       fetchStormglassData(lat, lng);
+
       // fetchStormglass with the new lat and lng parameters 
 
    });
+
+   //////////////////////////////////
+   // Pull Values from local storage
+
+   // if there is no value for last-selection then load page as is.  
+   // If there is a value then load last-lat and last-lng to be passed to fetchStormglassData as lat and lng arguments
+   if (localStorage.getItem("last-selection")){
+      let lat = localStorage.getItem("last-lat");
+      let lng = localStorage.getItem("last-lng");
+      console.log("Eyooo");
+      fetchStormglassData(lat, lng);
+   }
+
+
+
 });
