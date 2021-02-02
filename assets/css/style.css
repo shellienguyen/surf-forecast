@@ -50,4 +50,13 @@ p {
 
 #cities {
   margin-top: 5%;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  
+  #cities {
+    width: 100%;
+  }
+
 }
