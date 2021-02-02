@@ -151,19 +151,19 @@ $(document).ready(function () {
 
       if (windData >= 8.2) {
 
-         surfConditions = "windy surf";
+         surfConditions = "Windy Surf";
 
       } else if (windData > 6.69 && windData < 8.2 && waveRatio < .5) {
 
-         surfConditions = "bad surf";
+         surfConditions = "Bad Surf";
 
       } else if (waveData < .6) {
 
-         surfConditions = "small surf"
+         surfConditions = "Small Surf"
 
-      } else if (waveData > .6 && windData < 6.69 && waveRatio > .5) {
+      } else if (waveData > .6 && windData <= 6.69 && waveRatio > .5) {
          
-         surfConditions = "good surf";
+         surfConditions = "Good Surf";
 
       }
 
@@ -181,8 +181,12 @@ $(document).ready(function () {
       )
 
          .then(function(response) {
+            if (response.ok) {
             return response.json();
-         })
+         } else {
+            throw new Error('Something went wrong');
+         }
+      })
          .then(function(response) {
             console.log(response.data[0]);
             let responseContainerEl = document.querySelector('#giphy');
@@ -194,7 +198,10 @@ $(document).ready(function () {
 
             responseContainerEl.appendChild(gifImg);
 
-      });
+      })
+         .catch((error) => {
+            console.log(error)
+         });
 
       // display surf conditions description and append to page
 
