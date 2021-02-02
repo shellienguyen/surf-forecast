@@ -3,6 +3,7 @@ $(document).ready(function () {
 
    // array to hold location info for the beach options
    let beachLocation = [ 
+      {name: "Select Beach"},
       {name: "Zuma Beach", lat: 34.021802, lng: -118.831190},
       {name: "Santa Monica", lat: 34.024212, lng: -118.496475},
       {name: "Manhattan Beach", lat: 33.881248, lng: -118.407211},
@@ -219,7 +220,7 @@ $(document).ready(function () {
       //lng = -1173.8108887;
 
       const params = "windSpeed,waterTemperature,windDirection,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
-      apiKey = "777e70f8-6125-11eb-83d4-0242ac130002-777e7170-6125-11eb-83d4-0242ac130002"
+      apiKey = "567e2358-6125-11eb-83d4-0242ac130002-567e23c6-6125-11eb-83d4-0242ac130002"
 
       fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
             headers: {
@@ -246,49 +247,9 @@ $(document).ready(function () {
       });
  */   };
 
-   ////////////////////////////////////
-
-   // let fetchStormglassData = function (lat, lng) {
-   //    console.log("today: " + new Date());
-   //    let todayInUtcTime = Math.floor((new Date().getTime()) / 1000);
-   //    console.log("todayInUtcTime: " + todayInUtcTime);
-
-   //    // const lat = 33.5705796;
-   //    // const lng = -117.8108887;
-   //    const params = "windSpeed,windDirection,cloudCover,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
-   //    apiKey = "567e2358-6125-11eb-83d4-0242ac130002-567e23c6-6125-11eb-83d4-0242ac130002"
-
-   //    fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
-   //       headers: {
-   //          'Authorization': apiKey
-   //       }
-   //    }).then((response) => response.json()).then((jsonData) => {
-   //       // Do something with response data.
-   //       console.log(jsonData);
-   //       parseAndDisplayStormglassData(jsonData);
-   //    });
-   // };
-
-   ////////////////////////////////////
-   // This section returns errors when page is loaded.  I believe it is corresponding to the changes made with our script tags in index.html.  Can this section be deleted?
-
-   // Upon page load
-   // $( document ).ready( function() {
-   //    fetchStormglassData();
-   // });
-   // document.addEventListener('DOMContentLoaded', function() {
-   //   var elems = document.querySelectorAll('select');
-   //   var instances = M.FormSelect.init(elems, options);
-   // });
-
-   // var instance = M.FormSelect.getInstance(elem);
-
-   // instance.getSelectedValues("")
-
    ///////////////////////////////////////
    // event listener for beach selection 
 
-   ////////////////////////////////////
 
    let beachSelect = document.querySelector('#select');
    console.log(beachSelect);
@@ -300,6 +261,7 @@ $(document).ready(function () {
       let lat = beachLocation[event.target.value].lat; 
       let lng = beachLocation[event.target.value].lng; 
 
+      // save last search option value and lat lng in local.storage
       localStorage.setItem("last selection", selection);
       localStorage.setItem("last-lat", lng);
       localStorage.setItem("last-lng", lat);
@@ -314,13 +276,15 @@ $(document).ready(function () {
 
    // if there is no value for last-selection then load page as is.  
    // If there is a value then load last-lat and last-lng to be passed to fetchStormglassData as lat and lng arguments
-   if (localStorage.getItem("last-selection")){
-      let lat = localStorage.getItem("last-lat");
-      let lng = localStorage.getItem("last-lng");
-      console.log("Eyooo");
-      fetchStormglassData(lat, lng);
-   }
-
+  
+   if (localStorage.getItem("last-selection") === 0){
+      selection = 0;
+  } else {
+   let lat = localStorage.getItem("last-lat");
+   let lng = localStorage.getItem("last-lng");
+   console.log("Eyooo");
+   fetchStormglassData(lat, lng);
+  }
 
 
 });
