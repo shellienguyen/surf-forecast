@@ -147,7 +147,7 @@ $(document).ready(function () {
 
       console.log(waveRatio);
 
-      // analyze numbers to against my own descriptions to display surf coditions
+      // analyze data to compare with my own definitions of surf conditions and display findings
 
       if (windData >= 8.2) {
 
