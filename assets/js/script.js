@@ -255,13 +255,10 @@ $(document).ready(function () {
 
    //////////////////////////////////
    // Pull values from local storage
-
    // if there is no value for last-selection then load page as is.  
    // If there is a value then load last-lat and last-lng to be passed to fetchStormglassData as lat and lng arguments
   
-   if (localStorage.getItem("last-selection") === null){
-      selection = 0;
-  } else {
+   if (localStorage.getItem("last-selection")){
       beachSelect.value = localStorage.getItem("last-selection");
       lat = localStorage.getItem("last-lat");
       lng = localStorage.getItem("last-lng");
