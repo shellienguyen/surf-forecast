@@ -121,37 +121,49 @@ $(document).ready(function () {
 
       // pull data used to determine surf conditions
 
-      let windData = fetchedData.hours [ 0 ].windSpeed.noaa;
-      console.log(windData);
-      let swellData = fetchedData.hours [ 0 ].swellHeight.noaa;
+      let windData = fetchedData.hours[0].windSpeed.noaa;
 
-      let waveData = fetchedData. hours [ 0 ].waveHeight.noaa;
 
-      let waveRatio = swellData / waveData;
-      console.log(waveRatio);
+      let swellData = fetchedData.hours[0].swellHeight.noaa;
+
+
+      let waveData = fetchedData.hours[0].waveHeight.noaa;
+
+
+      let waveRatio = swellData / waveData ;
+
+
+
+//    initialize surf description variable
+      let surfConditions = "";
+
       // analyze data to compare with my own definitions of surf conditions and display findings
 
-      if (windData >= 8.2) {
+      if (windData > 8.2) {
+
 
          surfConditions = "Windy Surf";
          console.log(surfConditions);
       } else if (windData > 6.69 && windData < 8.2 && waveRatio < .5) {
 
+
          surfConditions = "Bad Surf";
          console.log(surfConditions);
       } else if (waveData < .6) {
 
+
          surfConditions = "Small Surf"
-         console.log(surfConditions);
-      } else if (waveData > .6 && windData <= 6.69 && waveRatio > .5) {
-         
+
+      } else {
+
+         // return "Good Surf";
+
          surfConditions = "Good Surf";
          console.log(surfConditions);
       }
 
       console.log(surfConditions);
       let off = Math.floor(Math.random() * 20 + 1);
-      console.log(off);
 
       // pull gifs with key word coming from the surf conditions algorhythm and post to gif container on page
 
@@ -208,7 +220,7 @@ $(document).ready(function () {
       //lng = -1173.8108887;
 
       const params = "windSpeed,waterTemperature,windDirection,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
-      apiKey = "cb8717a4-6661-11eb-958b-0242ac130002-cb871830-6661-11eb-958b-0242ac130002"
+      apiKey = "4e36911e-6673-11eb-b399-0242ac130002-4e369240-6673-11eb-b399-0242ac130002"
 
       fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
             headers: {
