@@ -117,38 +117,39 @@ $(document).ready(function () {
    // Fetch Gifs from Giphy Analyze weather data and display surf conditions with Gif and Descriptive Heading
 
    let fetchGifs = function( fetchedData ) {
+      let surfConditions = "";
 
       // pull data used to determine surf conditions
 
       let windData = fetchedData.hours [ 0 ].windSpeed.noaa;
-
+      console.log(windData);
       let swellData = fetchedData.hours [ 0 ].swellHeight.noaa;
 
       let waveData = fetchedData. hours [ 0 ].waveHeight.noaa;
 
       let waveRatio = swellData / waveData;
-
+      console.log(waveRatio);
       // analyze data to compare with my own definitions of surf conditions and display findings
 
       if (windData >= 8.2) {
 
          surfConditions = "Windy Surf";
-
+         console.log(surfConditions);
       } else if (windData > 6.69 && windData < 8.2 && waveRatio < .5) {
 
          surfConditions = "Bad Surf";
-
+         console.log(surfConditions);
       } else if (waveData < .6) {
 
          surfConditions = "Small Surf"
-
+         console.log(surfConditions);
       } else if (waveData > .6 && windData <= 6.69 && waveRatio > .5) {
          
          surfConditions = "Good Surf";
-
+         console.log(surfConditions);
       }
 
-
+      console.log(surfConditions);
       let off = Math.floor(Math.random() * 20 + 1);
       console.log(off);
 
@@ -262,6 +263,9 @@ $(document).ready(function () {
       beachSelect.value = localStorage.getItem("last-selection");
       lat = localStorage.getItem("last-lat");
       lng = localStorage.getItem("last-lng");
+      console.log(this);
+      $('#default').removeAttr('selected');
+      $(this).attr('selected', true);
       // beachSelect.textContent = localStorage.getItem("last-beach-name");
       console.log("we in here");
       fetchStormglassData(lat, lng);
