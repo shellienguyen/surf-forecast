@@ -11,13 +11,10 @@
 </head>
 
 <body>
-  <main>
-
-  </main>
-
   <header>
     <h1>Los Angeles/Orange County Surf Conditions</h1>
   </header>
+
   <div class="row" id="body">
     <div class="col s13 m10 l8 xl6 offset-m1 offset-l2 offset-xl3 light-blue lighten-3 section z-depth-5"
       id="conditions">
@@ -40,7 +37,7 @@
             <th><a class="orange-text text-darken-3" id="waterTemp">
                 <p class="black-text">Water:</p>[waterTemp]
               </a></th>
-            <th><a id="giphy"><img src="https://via.placeholder.com/250"></a></th>
+            <th><a id="giphy"><img src="./assets/images/surfgif.jpg"></a></th>
             <th><a class="orange-text text-darken-3" id="airTemp">
                 <p class="black-text">Air:</p>[airTemp]
               </a></th>
@@ -48,7 +45,7 @@
           <tr>
             <th></th>
             <th>
-              <p class="surf-description" id="surf-description">Surf</p>
+              <p class="surf-description" id="surf-description">Get Current Surf Conditions</p>
             </th>
             <th></th>
           </tr>
@@ -106,8 +103,18 @@
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
 
-
+  <!-------------------------------------------------->
+  <!-- Start of Modal -->
+  <div class = "modal-bg">
+    <div class = "modal-content">
+      <div class  = "modal-close">+</div>
+      <br><br><br>
+      <h5>Surf information not available.</h4>
+      <br><br>
+      <img src = "./assets/images/WaveIcon.svg" height = "80px" width = "80px">
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

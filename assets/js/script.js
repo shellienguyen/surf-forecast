@@ -128,28 +128,29 @@ $(document).ready(function () {
 
       let waveRatio = swellData / waveData;
 
-      // analyze numbers to against my own descriptions to display surf coditions
+      // analyze data to compare with my own definitions of surf conditions and display findings
 
       if (windData >= 8.2) {
 
-         surfConditions = "windy surf";
+         surfConditions = "Windy Surf";
 
       } else if (windData > 6.69 && windData < 8.2 && waveRatio < .5) {
 
-         surfConditions = "bad surf";
+         surfConditions = "Bad Surf";
 
       } else if (waveData < .6) {
 
-         surfConditions = "small surf"
+         surfConditions = "Small Surf"
 
-      } else if (waveData > .6 && windData < 6.69 && waveRatio > .5) {
+      } else if (waveData > .6 && windData <= 6.69 && waveRatio > .5) {
          
-         surfConditions = "good surf";
+         surfConditions = "Good Surf";
 
       }
 
 
-      let off = Math.floor(Math.random() * 10 + 1);
+      let off = Math.floor(Math.random() * 20 + 1);
+      console.log(off);
 
       // pull gifs with key word coming from the surf conditions algorhythm and post to gif container on page
 
@@ -160,8 +161,12 @@ $(document).ready(function () {
       )
 
          .then(function(response) {
+            if (response.ok) {
             return response.json();
-         })
+         } else {
+            throw new Error('Something went wrong');
+         }
+      })
          .then(function(response) {
             let responseContainerEl = document.querySelector('#giphy');
 
@@ -172,7 +177,10 @@ $(document).ready(function () {
 
             responseContainerEl.appendChild(gifImg);
 
-      });
+      })
+         .catch((error) => {
+            console.log(error)
+         });
 
       // display surf conditions description and append to page
 
@@ -192,7 +200,9 @@ $(document).ready(function () {
       // Convert time to UTC time, required to pass into the fetch parameter
       let todayInUtcTime = Math.floor(( new Date().getTime()) / 1000 );
 
-      // Just to test fetch error
+      ///////////////////////////////////////////////////
+      // Uncomment these two lines to test fetch error //
+      ///////////////////////////////////////////////////
       //lat = 3333.5705796;
       //lng = -1173.8108887;
 
@@ -215,13 +225,10 @@ $(document).ready(function () {
          }
          else {
             console.log( "Fetch error" );
+            document.querySelector( ".modal-bg" ).style.display = "flex";
          };
       });
-/*       .catch(( error ) => {
-         console.log( "fetch error: " );
-         console.log( error );   
-      });
- */   };
+   };
 
    ///////////////////////////////////////
    // event listener for beach selection 
@@ -265,4 +272,8 @@ $(document).ready(function () {
   }
 
 
+   // When the user clicks on the X to close the fetch error modal
+   document.querySelector( ".modal-close" ).addEventListener( "click", function() {
+      document.querySelector( ".modal-bg" ).style.display = "none";
+   });
 });
