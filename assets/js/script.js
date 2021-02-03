@@ -169,7 +169,7 @@ $(document).ready(function () {
 
       console.log(surfConditions);
 
-      let off = Math.floor(Math.random() * 10 + 1);
+      let off = Math.floor(Math.random() * 20 + 1);
       console.log(off);
 
       // pull gifs with key word coming from the surf conditions algorhythm and post to gif container on page
