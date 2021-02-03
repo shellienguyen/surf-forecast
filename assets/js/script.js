@@ -77,51 +77,38 @@ $(document).ready(function () {
       // Convert from celcius to fahrenheit and round to 2 decimal places
       airTemp = ((airTemp * (9 / 5)) + 32).toFixed(2);
       $( "#airTemp" ).html( "<p class='black-text'>Air Temp</p>" + airTemp + " °F" );
-      console.log("airTemp: " + airTemp + " °F");
 
       let waterTemp = fetchedData.hours[0].waterTemperature.noaa;
       // Convert from celcius to fahrenheit and round to 2 decimal places
       waterTemp = ((waterTemp * (9 / 5)) + 32).toFixed(2);
       $( "#waterTemp" ).html( "<p class='black-text'>Water Temp</p>" + waterTemp + " °F" );
-      console.log("waterTemp: " + waterTemp + " °F");
-
-      //let cloudCover = fetchedData.hours[0].cloudCover.noaa;
-      //console.log("cloudCover: " + cloudCover + "%");
 
       let humidity = fetchedData.hours[0].humidity.noaa;
-      console.log("humidity: " + humidity + "%");
 
       let swellDirection = fetchedData.hours[0].swellDirection.noaa;
       $( "#swellDirection" ).text( getDirection( swellDirection ) + " " + swellDirection + "°" );
-      console.log("swellDirection: " + swellDirection + "°");
 
       let swellPeriod = fetchedData.hours[0].swellPeriod.noaa;
       $( "#swellPeriod" ).text( swellPeriod + "s" );
-      console.log("swellPeriod: " + swellPeriod + "s");
 
       let waveDirection = fetchedData.hours[0].waveDirection.noaa;
       $( "#waveDirection" ).text( getDirection( waveDirection ) + " " + waveDirection + "°" );
-      console.log("waveDirection: " + waveDirection + "°");
 
       let waveHeight = fetchedData.hours[0].waveHeight.noaa;
       // Convert waveHeight from meters to feet and round to 2 decimal places
       waveHeight = (waveHeight * 3.281).toFixed(2);
       $( "#waveHeight" ).text( waveHeight + "ft" );
-      console.log("waveHeight: " + waveHeight + "ft");
 
       let wavePeriod = fetchedData.hours[0].wavePeriod.noaa;
       $( "#wavePeriod" ).text( wavePeriod + "s" );
-      console.log("wavePeriod: " + wavePeriod + "s");
 
       let windDirection = fetchedData.hours[0].windDirection.noaa;
       $( "#windDirection" ).text( getDirection( windDirection ) + " " + windDirection + "°" );
-      console.log("windDirection: " + windDirection + "°");
 
       let windSpeed = fetchedData.hours[0].windSpeed.noaa;
       // Convert waveHeight from meters to feet and round to 2 decimal places
       windSpeed = (windSpeed * 3.281).toFixed(2);
       $( "#windSpeed" ).text( windSpeed + " fts" );
-      console.log("windSpeed: " + windSpeed + "fts");
 
    };
    
@@ -135,19 +122,11 @@ $(document).ready(function () {
 
       let windData = fetchedData.hours [ 0 ].windSpeed.noaa;
 
-      console.log("my wind data is " + windData);
-
       let swellData = fetchedData.hours [ 0 ].swellHeight.noaa;
-
-      console.log("my swell data is " + swellData);
 
       let waveData = fetchedData. hours [ 0 ].waveHeight.noaa;
 
-      console.log("my wave data is" + waveData);
-
-      let waveRatio = swellData / waveData ;
-
-      console.log(waveRatio);
+      let waveRatio = swellData / waveData;
 
       // analyze numbers to against my own descriptions to display surf coditions
 
@@ -169,10 +148,8 @@ $(document).ready(function () {
 
       }
 
-      console.log(surfConditions);
 
       let off = Math.floor(Math.random() * 10 + 1);
-      console.log(off);
 
       // pull gifs with key word coming from the surf conditions algorhythm and post to gif container on page
 
@@ -186,7 +163,6 @@ $(document).ready(function () {
             return response.json();
          })
          .then(function(response) {
-            console.log(response.data[0]);
             let responseContainerEl = document.querySelector('#giphy');
 
             responseContainerEl.innerHTML = "";
@@ -202,7 +178,9 @@ $(document).ready(function () {
 
       let conditionsHeadingEl = document.querySelector("#surf-description");
 
-      let conditionsDescription = conditionsHeadingEl.innerHTML = surfConditions;
+      conditionsHeadingEl.innerHTML = surfConditions;
+
+      let conditionsDescription = surfConditions;
 
       conditionsHeadingEl.appendChild(conditionsDescription);
    };
@@ -210,11 +188,9 @@ $(document).ready(function () {
    ////////////////////////////////////
 
    let fetchStormglassData = function( lat, lng ) {
-      console.log( "today: " + new Date() );
 
       // Convert time to UTC time, required to pass into the fetch parameter
       let todayInUtcTime = Math.floor(( new Date().getTime()) / 1000 );
-      console.log( "todayInUtcTime: " + todayInUtcTime );
 
       // Just to test fetch error
       //lat = 3333.5705796;
@@ -230,7 +206,6 @@ $(document).ready(function () {
       }).then(( response ) => {
          if (response.ok ) {
             response.json().then(( jsonData ) => {
-               console.log( jsonData );
                parseAndDisplayStormglassData( jsonData );
    
                // push data from stormglass api call to gif function.  and call function.  
@@ -258,9 +233,11 @@ $(document).ready(function () {
       // change the lat and lng variables to correspond with the selected beach
       let lat = beachLocation[event.target.value].lat; 
       let lng = beachLocation[event.target.value].lng; 
+      let beachName = beachLocation[event.target.value].name;
 
       // save last search option value and lat lng in local.storage
-      localStorage.setItem("last selection", selection);
+      localStorage.setItem("last-beach-name", beachName);
+      localStorage.setItem("last-selection", selection);
       localStorage.setItem("last-lat", lat);
       localStorage.setItem("last-lng", lng);
       fetchStormglassData(lat, lng);
@@ -275,13 +252,15 @@ $(document).ready(function () {
    // if there is no value for last-selection then load page as is.  
    // If there is a value then load last-lat and last-lng to be passed to fetchStormglassData as lat and lng arguments
   
-   if (localStorage.getItem("last-selection") === 0){
+   if (localStorage.getItem("last-selection") === null){
       selection = 0;
   } else {
+ 
       beachSelect.value = localStorage.getItem("last-selection");
       lat = localStorage.getItem("last-lat");
       lng = localStorage.getItem("last-lng");
-
+      document.getElementById("select").textContent = localStorage.getItem("last-beach-name");
+      console.log("we in here");
       fetchStormglassData(lat, lng);
   }
 
