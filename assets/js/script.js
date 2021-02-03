@@ -177,7 +177,7 @@ $(document).ready(function () {
       fetch(
          `https://api.giphy.com/v1/gifs/search?q=' +
          ${surfConditions} +
-         '&api_key=D4UdLTPgdxcfFYoHduwg3ZwTU5udC9K6&limit=1&offset=${off}`
+         '&api_key=Z26qJYEkd2BAT394FJ20Br3U9wES9ngF&limit=1&offset=${off}`
       )
 
          .then(function(response) {
