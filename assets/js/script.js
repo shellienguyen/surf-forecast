@@ -131,38 +131,43 @@ $(document).ready(function () {
 
       // pull data used to determine surf conditions
 
-      let windData = fetchedData.hours [ 0 ].windSpeed.noaa;
+      let windData = fetchedData.hours[0].windSpeed.noaa;
 
-      console.log("my wind data is " + windData);
 
-      let swellData = fetchedData.hours [ 0 ].swellHeight.noaa;
+      let swellData = fetchedData.hours[0].swellHeight.noaa;
 
-      console.log("my swell data is " + swellData);
 
-      let waveData = fetchedData. hours [ 0 ].waveHeight.noaa;
+      let waveData = fetchedData.hours[0].waveHeight.noaa;
 
-      console.log("my wave data is" + waveData);
 
       let waveRatio = swellData / waveData ;
 
-      console.log(waveRatio);
+
+
+//    initialize surf description variable
+      let surfConditions = "";
 
       // analyze data to compare with my own definitions of surf conditions and display findings
 
-      if (windData >= 8.2) {
+      if (windData > 8.2) {
+
 
          surfConditions = "Windy Surf";
 
       } else if (windData > 6.69 && windData < 8.2 && waveRatio < .5) {
 
+
          surfConditions = "Bad Surf";
 
       } else if (waveData < .6) {
 
+
          surfConditions = "Small Surf"
 
-      } else if (waveData > .6 && windData <= 6.69 && waveRatio > .5) {
-         
+      } else {
+
+         // return "Good Surf";
+
          surfConditions = "Good Surf";
 
       }
@@ -170,7 +175,6 @@ $(document).ready(function () {
       console.log(surfConditions);
 
       let off = Math.floor(Math.random() * 20 + 1);
-      console.log(off);
 
       // pull gifs with key word coming from the surf conditions algorhythm and post to gif container on page
 
