@@ -207,7 +207,7 @@ $(document).ready(function () {
       //lng = -1173.8108887;
 
       const params = "windSpeed,waterTemperature,windDirection,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
-      apiKey = "567e2358-6125-11eb-83d4-0242ac130002-567e23c6-6125-11eb-83d4-0242ac130002"
+      apiKey = "cb8717a4-6661-11eb-958b-0242ac130002-cb871830-6661-11eb-958b-0242ac130002"
 
       fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
             headers: {
@@ -254,7 +254,7 @@ $(document).ready(function () {
    });
 
    //////////////////////////////////
-   // Pull Values from local storage
+   // Pull values from local storage
 
    // if there is no value for last-selection then load page as is.  
    // If there is a value then load last-lat and last-lng to be passed to fetchStormglassData as lat and lng arguments
@@ -262,11 +262,10 @@ $(document).ready(function () {
    if (localStorage.getItem("last-selection") === null){
       selection = 0;
   } else {
- 
       beachSelect.value = localStorage.getItem("last-selection");
       lat = localStorage.getItem("last-lat");
       lng = localStorage.getItem("last-lng");
-      document.getElementById("select").textContent = localStorage.getItem("last-beach-name");
+      // beachSelect.textContent = localStorage.getItem("last-beach-name");
       console.log("we in here");
       fetchStormglassData(lat, lng);
   }
