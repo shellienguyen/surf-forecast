@@ -13,6 +13,7 @@ $(document).ready(function () {
       {name: "Newport Beach", lat: 33.628342, lng: -117.927933},
    ];
 
+
    ////////////////////////////////////
 
    let getDirection = function( degree ) {
@@ -249,22 +250,19 @@ $(document).ready(function () {
 
    ///////////////////////////////////////
    // event listener for beach selection 
-
-
    let beachSelect = document.querySelector('#select');
-   console.log(beachSelect);
    beachSelect.addEventListener("change", function(event) {
-      // change the lat and lng variables to correspond with the selected beach
+      // set variable for index value of selection
       let selection = document.getElementById("select").value;
-      console.log(selection);
-      console.log(beachLocation[event.target.value]); 
+
+      // change the lat and lng variables to correspond with the selected beach
       let lat = beachLocation[event.target.value].lat; 
       let lng = beachLocation[event.target.value].lng; 
 
       // save last search option value and lat lng in local.storage
       localStorage.setItem("last selection", selection);
-      localStorage.setItem("last-lat", lng);
-      localStorage.setItem("last-lng", lat);
+      localStorage.setItem("last-lat", lat);
+      localStorage.setItem("last-lng", lng);
       fetchStormglassData(lat, lng);
 
       // fetchStormglass with the new lat and lng parameters 
@@ -280,10 +278,11 @@ $(document).ready(function () {
    if (localStorage.getItem("last-selection") === 0){
       selection = 0;
   } else {
-   let lat = localStorage.getItem("last-lat");
-   let lng = localStorage.getItem("last-lng");
-   console.log("Eyooo");
-   fetchStormglassData(lat, lng);
+      beachSelect.value = localStorage.getItem("last-selection");
+      lat = localStorage.getItem("last-lat");
+      lng = localStorage.getItem("last-lng");
+
+      fetchStormglassData(lat, lng);
   }
 
 
