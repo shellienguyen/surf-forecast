@@ -221,7 +221,9 @@ $(document).ready(function () {
       let todayInUtcTime = Math.floor(( new Date().getTime()) / 1000 );
       console.log( "todayInUtcTime: " + todayInUtcTime );
 
-      // Just to test fetch error
+      ///////////////////////////////////////////////////
+      // Uncomment these two lines to test fetch error //
+      ///////////////////////////////////////////////////
       //lat = 3333.5705796;
       //lng = -1173.8108887;
 
@@ -245,13 +247,10 @@ $(document).ready(function () {
          }
          else {
             console.log( "Fetch error" );
+            document.querySelector( ".modal-bg" ).style.display = "flex";
          };
       });
-/*       .catch(( error ) => {
-         console.log( "fetch error: " );
-         console.log( error );   
-      });
- */   };
+   };
 
    ////////////////////////////////////
 
@@ -308,5 +307,10 @@ $(document).ready(function () {
       fetchStormglassData(lat, lng);
       // fetchStormglass with the new lat and lng parameters 
 
+   });
+
+   // When the user clicks on the X to close the fetch error modal
+   document.querySelector( ".modal-close" ).addEventListener( "click", function() {
+      document.querySelector( ".modal-bg" ).style.display = "none";
    });
 });

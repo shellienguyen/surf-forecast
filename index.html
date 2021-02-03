@@ -11,13 +11,10 @@
 </head>
 
 <body>
-  <main>
-
-  </main>
-
   <header>
     <h1>Los Angeles/Orange County Surf Conditions</h1>
   </header>
+
   <div class="row" id="body">
     <div class="col s13 m10 l8 xl6 offset-m1 offset-l2 offset-xl3 light-blue lighten-3 section z-depth-5"
       id="conditions">
@@ -106,20 +103,34 @@
           </tr>
         </tbody>
       </table>
-
-
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- THIS SCRIPT TAG WAS COMMENTED OUT W/ HELP FROM DAIRMUID -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-    <script src="./assets/js/script.js"></script>
-    <!-- THIS SCRIPT TAG WAS COMMENTED OUT W/ HELP FROM DAIRMUID -->
-    <script>
-    // $(document).ready(function(){
-    // $('select').formSelect();
-    // });
-    </script>
+  </div>
+
+  <!-------------------------------------------------->
+  <!-- Start of Modal -->
+  <div class = "modal-bg">
+    <div class = "modal-content">
+      <div class  = "modal-close">+</div>
+      <br><br><br>
+      <h5>Surf information not available.</h4>
+      <br><br>
+      <img src = "./assets/images/WaveIcon.svg" height = "80px" width = "80px">
+    </div>
+  </div>
+  <!-- End of Modal -->
+  <!-------------------------------------------------->
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- THIS SCRIPT TAG WAS COMMENTED OUT W/ HELP FROM DAIRMUID -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <script src="./assets/js/script.js"></script>
+  <!-- THIS SCRIPT TAG WAS COMMENTED OUT W/ HELP FROM DAIRMUID -->
+  <script>
+  // $(document).ready(function(){
+  // $('select').formSelect();
+  // });
+  </script>
 </body>
 
 </html>
