@@ -257,14 +257,15 @@ $(document).ready(function () {
       localStorage.setItem("last-selection", selection);
       localStorage.setItem("last-lat", lat);
       localStorage.setItem("last-lng", lng);
-      fetchStormglassData(lat, lng);
-
       // fetchStormglass with the new lat and lng parameters 
+      fetchStormglassData(lat, lng);
+      // change h2 innerhtml to display beach name
+      document.getElementById("current-beach").innerHTML = beachName;
 
    });
 
    //////////////////////////////////
-   // Pull values from local storage
+   // Pull values from local storage and display last selected beach upon reload.
   
    if (localStorage.getItem("last-selection")){
       // set "Select beach" default option's attribute of selected to "false".
@@ -282,6 +283,8 @@ $(document).ready(function () {
 
       console.log("we in here");
       fetchStormglassData(lat, lng); 
+
+      document.getElementById("current-beach").innerHTML = localStorage.getItem("last-beach-name");
    } else {
       beachSelect.selectedIndex = "-1";
    }
