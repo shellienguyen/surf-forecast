@@ -267,22 +267,18 @@ $(document).ready(function () {
    // Pull values from local storage
   
    if (localStorage.getItem("last-selection")){
+      // set "Select beach" default option's attribute of selected to "false".
+      let deafaultOpt = document.getElementById("default");
+      deafaultOpt.setAttribute("selected", "false");
+
       // set the value of the selected option to equal the last selection value in local storage.
-      
       beachSelect.selectedIndex = localStorage.getItem("last-selection");
       lat = localStorage.getItem("last-lat");
       lng = localStorage.getItem("last-lng");
-      beachSelect.value = localStorage.getItem("last-beach-name");
 
-      // ? this returns entire DOM ?
-      // console.log(this);
-
-      // trying to remove "selected" attribute from default option:
-      // document.querySelector("#default").removeAttribute('selected');
-      // document.getElementById("select").removeAttribute('selected');
-      // // $(this).attr('selected', true);
-      // document.getElementById("default").removeAttribute('selected');
-      // beachSelect.removeAttribute("selected");
+      // set the currently selected beach to a variable and add attribute of selected true
+      let lastSelection = beachSelect.options[beachSelect.selectedIndex];
+      lastSelection.setAttribute("selected", "true");
 
       console.log("we in here");
       fetchStormglassData(lat, lng); 
