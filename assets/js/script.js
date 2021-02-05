@@ -3,6 +3,7 @@ $(document).ready(function () {
 
    // array to hold location info for the beach options
    let beachLocation = [ 
+      {name: "Select beach"},
       {name: "Zuma Beach", lat: 34.021802, lng: -118.831190},
       {name: "Santa Monica", lat: 34.024212, lng: -118.496475},
       {name: "Manhattan Beach", lat: 33.881248, lng: -118.407211},
@@ -241,6 +242,7 @@ $(document).ready(function () {
    ///////////////////////////////////////
    // event listener for beach selection 
    let beachSelect = document.querySelector('#select');
+
    beachSelect.addEventListener("change", function(event) {
       // set variable for index value of selection
       let selection = document.getElementById("select").value;
@@ -263,20 +265,30 @@ $(document).ready(function () {
 
    //////////////////////////////////
    // Pull values from local storage
-   // if there is no value for last-selection then load page as is.  
-   // If there is a value then load last-lat and last-lng to be passed to fetchStormglassData as lat and lng arguments
   
    if (localStorage.getItem("last-selection")){
-      beachSelect.value = localStorage.getItem("last-selection");
+      // set the value of the selected option to equal the last selection value in local storage.
+      // beachSelect.value = localStorage.getItem("last-selection");
+
+      beachSelect.selectedIndex = localStorage.getItem("last-selection");
       lat = localStorage.getItem("last-lat");
       lng = localStorage.getItem("last-lng");
-      console.log(this);
-      // $('#default').removeAttr('selected');
+
+      // this returns entire DOM
+      // console.log(this);
+
+      // trying to remove "selected" attribute from default option:
+      
+      // document.getElementById("select").removeAttribute('selected');
       // // $(this).attr('selected', true);
-      // beachSelect.textContent = localStorage.getItem("last-beach-name");
+      // document.getElementById("default").removeAttribute('selected');
+      // beachSelect.removeAttribute("selected");
+
       console.log("we in here");
-      fetchStormglassData(lat, lng);
-  }
+      fetchStormglassData(lat, lng); 
+   } else {
+      beachSelect.selectedIndex = "-1";
+   }
 
 
    // When the user clicks on the X to close the fetch error modal
