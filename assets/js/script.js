@@ -3,7 +3,6 @@ $(document).ready(function () {
 
    // array to hold location info for the beach options
    let beachLocation = [ 
-      {name: "Select Beach"},
       {name: "Zuma Beach", lat: 34.021802, lng: -118.831190},
       {name: "Santa Monica", lat: 34.024212, lng: -118.496475},
       {name: "Manhattan Beach", lat: 33.881248, lng: -118.407211},
@@ -132,10 +131,6 @@ $(document).ready(function () {
 
       let waveRatio = swellData / waveData ;
 
-
-
-//    initialize surf description variable
-      let surfConditions = "";
 
       // analyze data to compare with my own definitions of surf conditions and display findings
 
@@ -271,17 +266,17 @@ $(document).ready(function () {
    // if there is no value for last-selection then load page as is.  
    // If there is a value then load last-lat and last-lng to be passed to fetchStormglassData as lat and lng arguments
   
-//    if (localStorage.getItem("last-selection")){
-//       beachSelect.value = localStorage.getItem("last-selection");
-//       lat = localStorage.getItem("last-lat");
-//       lng = localStorage.getItem("last-lng");
-//       console.log(this);
-//       // $('#default').removeAttr('selected');
-//       // $(this).attr('selected', true);
-//       // beachSelect.textContent = localStorage.getItem("last-beach-name");
-//       console.log("we in here");
-//       fetchStormglassData(lat, lng);
-//   }
+   if (localStorage.getItem("last-selection")){
+      beachSelect.value = localStorage.getItem("last-selection");
+      lat = localStorage.getItem("last-lat");
+      lng = localStorage.getItem("last-lng");
+      console.log(this);
+      // $('#default').removeAttr('selected');
+      // // $(this).attr('selected', true);
+      // beachSelect.textContent = localStorage.getItem("last-beach-name");
+      console.log("we in here");
+      fetchStormglassData(lat, lng);
+  }
 
 
    // When the user clicks on the X to close the fetch error modal
