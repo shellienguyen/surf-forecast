@@ -271,17 +271,17 @@ $(document).ready(function () {
    // if there is no value for last-selection then load page as is.  
    // If there is a value then load last-lat and last-lng to be passed to fetchStormglassData as lat and lng arguments
   
-   if (localStorage.getItem("last-selection")){
-      beachSelect.value = localStorage.getItem("last-selection");
-      lat = localStorage.getItem("last-lat");
-      lng = localStorage.getItem("last-lng");
-      console.log(this);
-      $('#default').removeAttr('selected');
-      $(this).attr('selected', true);
-      // beachSelect.textContent = localStorage.getItem("last-beach-name");
-      console.log("we in here");
-      fetchStormglassData(lat, lng);
-  }
+//    if (localStorage.getItem("last-selection")){
+//       beachSelect.value = localStorage.getItem("last-selection");
+//       lat = localStorage.getItem("last-lat");
+//       lng = localStorage.getItem("last-lng");
+//       console.log(this);
+//       // $('#default').removeAttr('selected');
+//       // $(this).attr('selected', true);
+//       // beachSelect.textContent = localStorage.getItem("last-beach-name");
+//       console.log("we in here");
+//       fetchStormglassData(lat, lng);
+//   }
 
 
    // When the user clicks on the X to close the fetch error modal
