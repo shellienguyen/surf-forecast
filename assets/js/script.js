@@ -216,7 +216,7 @@ $(document).ready(function () {
       //lng = -1173.8108887;
 
       const params = "windSpeed,waterTemperature,windDirection,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
-      apiKey = "4e36911e-6673-11eb-b399-0242ac130002-4e369240-6673-11eb-b399-0242ac130002"
+      apiKey = "567e2358-6125-11eb-83d4-0242ac130002-567e23c6-6125-11eb-83d4-0242ac130002"
 
       fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
             headers: {
@@ -268,17 +268,17 @@ $(document).ready(function () {
   
    if (localStorage.getItem("last-selection")){
       // set the value of the selected option to equal the last selection value in local storage.
-      // beachSelect.value = localStorage.getItem("last-selection");
-
+      
       beachSelect.selectedIndex = localStorage.getItem("last-selection");
       lat = localStorage.getItem("last-lat");
       lng = localStorage.getItem("last-lng");
+      beachSelect.value = localStorage.getItem("last-beach-name");
 
-      // this returns entire DOM
+      // ? this returns entire DOM ?
       // console.log(this);
 
       // trying to remove "selected" attribute from default option:
-      
+      // document.querySelector("#default").removeAttribute('selected');
       // document.getElementById("select").removeAttribute('selected');
       // // $(this).attr('selected', true);
       // document.getElementById("default").removeAttribute('selected');
