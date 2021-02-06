@@ -83,6 +83,10 @@ p {
   cursor: pointer;
 }
 
+#current-beach {
+  font-weight: bolder;
+}
+
 @media screen and (min-width: 600px) {
   
   #cities {
