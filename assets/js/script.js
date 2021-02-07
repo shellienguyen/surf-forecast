@@ -13,7 +13,6 @@ $(document).ready(function () {
       { name: "Newport Beach", lat: 33.628342, lng: -117.927933 },
    ];
 
-
    ////////////////////////////////////
 
    let getDirection = function (degree) {
@@ -83,8 +82,6 @@ $(document).ready(function () {
       waterTemp = ((waterTemp * (9 / 5)) + 32).toFixed(2);
       $("#waterTemp").html("<p class='black-text'>Water Temp</p>" + waterTemp + " °F");
 
-      let humidity = fetchedData.hours[0].humidity.noaa;
-
       let swellDirection = fetchedData.hours[0].swellDirection.noaa;
       $("#swellDirection").text(getDirection(swellDirection) + " " + swellDirection + "°");
 
@@ -128,7 +125,6 @@ $(document).ready(function () {
 
       let waveRatio = swellData / waveData;
 
-
       // analyze data to compare with my own definitions of surf conditions and display findings
       if (windData > 8.2) {
          surfConditions = "Windy Surf";
@@ -140,7 +136,6 @@ $(document).ready(function () {
          // return "Good Surf";
          surfConditions = "Good Surf";
       }
-
 
       let off = Math.floor(Math.random() * 20 + 1);
 
@@ -179,9 +174,8 @@ $(document).ready(function () {
 
       conditionsHeadingEl.innerHTML = surfConditions;
 
-      let conditionsDescription = surfConditions;
-
-      conditionsHeadingEl.appendChild(conditionsDescription);
+      //let conditionsDescription = surfConditions;
+      //conditionsHeadingEl.appendChild(surfConditions);
    };
 
    ////////////////////////////////////
@@ -197,7 +191,7 @@ $(document).ready(function () {
       //lat = 3333.5705796;
       //lng = -1173.8108887;
 
-      const params = "windSpeed,waterTemperature,windDirection,humidity,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
+      const params = "windSpeed,waterTemperature,windDirection,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
       apiKey = "567e2358-6125-11eb-83d4-0242ac130002-567e23c6-6125-11eb-83d4-0242ac130002"
 
       fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
@@ -223,6 +217,7 @@ $(document).ready(function () {
 
    ///////////////////////////////////////
    // event listener for beach selection 
+   ///////////////////////////////////////
    let beachSelect = document.querySelector('#select');
 
    beachSelect.addEventListener("change", function (event) {
@@ -248,6 +243,7 @@ $(document).ready(function () {
 
    //////////////////////////////////
    // Pull values from local storage and display last selected beach upon reload.
+   //////////////////////////////////
 
    if (localStorage.getItem("last-selection")) {
       // set "Select beach" default option's attribute of selected to "false".
@@ -269,7 +265,6 @@ $(document).ready(function () {
    } else {
       beachSelect.selectedIndex = "-1";
    }
-
 
    // When the user clicks on the X to close the fetch error modal
    document.querySelector(".modal-close").addEventListener("click", function () {
