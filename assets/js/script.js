@@ -192,7 +192,7 @@ $(document).ready(function () {
       //lng = -1173.8108887;
 
       const params = "windSpeed,waterTemperature,windDirection,airTemperature,waveHeight,waveDirection,wavePeriod,swellDirection,swellHeight,swellPeriod";
-      apiKey = "567e2358-6125-11eb-83d4-0242ac130002-567e23c6-6125-11eb-83d4-0242ac130002"
+      apiKey = "4e36911e-6673-11eb-b399-0242ac130002-4e369240-6673-11eb-b399-0242ac130002"
 
       fetch(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${lng}&params=${params}&start=${todayInUtcTime}&end=${todayInUtcTime}&source=noaa`, {
          headers: {
