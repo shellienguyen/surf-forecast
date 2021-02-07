@@ -209,7 +209,6 @@ $(document).ready(function () {
             });
          }
          else {
-            console.log("Fetch error");
             document.querySelector(".modal-bg").style.display = "flex";
          };
       });
