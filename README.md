@@ -24,7 +24,7 @@ An if / else statement looks for values in local storage and if there is a previ
 ## StormGlass fetch and data display (Shellie):
 Once the user chooses a beach location, the fetch function is triggered and goes out to grab specifically selected data from the StormGlass.io API.  The function will only grab the necessary information: water temperature, air temperature, wind speed and direction, swell speed and direction, wave height, wave period, and wave direction.
 
-Once the fetch function successfully returns requested data, the data are parsed and displayed.  All information are converted from meters to feet and celcius to fahrenheit.  All directional data come back in the form of degrees.  0° indicates it is coming from the north, 90° indicates it is coming from the east, 180° indicates it is coming from the south, and 270° indicates it is coming from the west.  The degree will be passed into a function to determine its direction and there are 16 directions being used:<br>
+Upon a successful data fetch, the fetched weather details are parsed and displayed.  All information are converted from meters to feet and celcius to fahrenheit.  Storm Glass returns directional data in the form of degree.  0° indicates the direction is coming from the north, 90° indicates it is coming from the east, 180° indicates it is coming from the south, and 270° indicates it is coming from the west.  The degree will be passed into a function to determine its direction and there are 16 directions being used:<br><br>
   &nbsp;&nbsp;&nbsp;1.) North<br>
   &nbsp;&nbsp;&nbsp;2.) North-north-east<br>
   &nbsp;&nbsp;&nbsp;3.) North-east<br>
@@ -48,7 +48,7 @@ Javascript and JQuery were used. Modal was also used to display the fetch error 
 
 
 ## Surf Conditions algorithm and giphy fetch & display (Mike):
-These features introduced an algorithm of my own design that attempts to further simplify the user's search for conditions and add even more data for the user in an extremely convenient and uncluttered way.  The algorithm takes into account three conditions that determine if surf is either poor with almost no rideable waves or if it is good with a lot of fun waves and good for learning.  A quick descrition of the results that come from the algorithm populate the results screen below the returned gif and are the keyword search for the giphy API.  I used the containers that Tae designed for the gif pic and I used a new row for the results heading below the returned picture.  
+These features introduced an algorithm of my own design that attempts to further simplify the user's search for conditions and add even more data for the user in an extremely convenient and uncluttered way.  The algorithm takes into account three conditions that determine if surf is either poor with almost no rideable waves or if it is good with a lot of fun waves and good for learning.  A quick descrition of the results that come from the algorithm populate the results screen below the returned gif and are the keyword search for the giphy API.  I used the containers that Tae designed for the gif image and I used a new row for the results heading below the returned picture.  
 
 ## Ideas for future development:
 
@@ -67,3 +67,6 @@ https://github.com/shellienguyen/surf-forecast
 
 
 ## Screenshots of the deployed application:
+
+![Mockup](https://github.com/shellienguyen/surf-forecast/blob/main/assets/images/surf-forecast1.jpg)
+![Mockup](https://github.com/shellienguyen/surf-forecast/blob/main/assets/images/surf-forecast2.jpg)
