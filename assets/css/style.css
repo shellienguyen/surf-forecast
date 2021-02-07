@@ -1,9 +1,3 @@
-/* * {
-  border: red;
-  border-style: dotted;
-  height: auto;
-} */
-
 body {
   background-image:url(https://cloudfront-us-east-1.images.arcpublishing.com/bonnier/4YWJID3UPFAALN4FAYDMEBLOPY.jpg);
 }
@@ -50,4 +44,53 @@ p {
 
 #cities {
   margin-top: 5%;
+  width: 100%;
+}
+
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba( 99, 205, 231, 0.6);
+  position: absolute;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-content {
+  width: 350px;
+  height: 300px;
+  background-color: white;
+  border-radius: 4px;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 45px;
+  transform: rotate( 45deg );
+  cursor: pointer;
+}
+
+#current-beach {
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+#surf-description {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+  
+  #cities {
+    width: 100%;
+  }
+
 }
