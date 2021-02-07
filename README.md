@@ -48,6 +48,7 @@ Javascript and JQuery were used. Modal was also used to display the fetch error 
 
 
 ## Surf Conditions algorithm and giphy fetch & display (Mike):
+These features introduced an algorithm of my own design that attempts to further simplify the user's search for conditions and add even more data for the user in an extremely convenient and uncluttered way.  The algorithm takes into account three conditions that determine if surf is either poor with almost no rideable waves or if it is good with a lot of fun waves and good for learning.  A quick descrition of the results that come from the algorithm populate the results screen below the returned gif and are the keyword search for the giphy API.  I used the containers that Tae designed for the gif pic and I used a new row for the results heading below the returned picture.  
 
 ## Ideas for future development:
 
