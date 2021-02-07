@@ -69,4 +69,5 @@ https://github.com/shellienguyen/surf-forecast
 ## Screenshots of the deployed application:
 
 ![Mockup](https://github.com/shellienguyen/surf-forecast/blob/main/assets/images/surf-forecast1.jpg)
+<br><br>
 ![Mockup](https://github.com/shellienguyen/surf-forecast/blob/main/assets/images/surf-forecast2.jpg)
