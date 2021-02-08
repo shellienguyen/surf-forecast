@@ -6,6 +6,46 @@ When a user wants to go surfing, they want to know the current conditions for th
 
 
 ## Front End Materialize / CSS (Tae):
+#### User Experience:
+User selects an beach from the dropdown menu.
+
+#### User Interface:
+The background image reflects a beach with a surfer to indicate the category of the app.
+
+The table in the middle of the page is the running app with functionality.  It was set in the middle with a slightly transparent blue background so the background image can still be in the UI of the entire app.
+
+The black text shows the default property of the weather conditions.
+
+The colored text shows the value of that property which should change with the beach selection.
+
+The table was divided into 6 rows with 2 dividers & 3 columns.
+
+Each number will contain information of how each row is part of the UI.
+
+1. Heading(Los Angeles/Orange County Surf Conditions) above the dropdown menu with "Select beach" as the placeholder which indicates the user from the following options:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zuma Beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Santa Monica<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manhattan Beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Redondo Beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hermosa Beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Huntington Beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Newport Beach<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- After user selection, the name of the selected beach will appear below the dropdown menu.
+
+2. Water Temp, placeholder for the randomized Giphy image above the text Get Current Surf Conditions, Air Temp
+    - After user selection, the randomized Giphy image should appear along with new text of the surf conditions of the selected beach
+
+3. Wind & icon to reflect wind, Wind Speed, Wind Direction
+    - After user selection, the wind speed & direction values of the beach should be given.
+
+4. Swell & icon to reflect swell, Swell Period, Swell Direction
+    - After user selection, the swell period & direction values of the beach should be given.
+
+5. icons to reflect surfing on 1st & 3rd column, Waves text above an icon to reflect waves
+
+6. Wind Height, Wind Period, Wind Direction
+    - After user selection, the wind height, wind period, & wind direction values of the beach should be given.
 
 
 ## Drop down menu functionality & local.storage (Nate):
